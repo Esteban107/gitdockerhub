@@ -1,0 +1,100 @@
+#sitio web wordpress
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: db-backend
+  template:
+    metadata:
+      labels:
+        app: db-backend
+    spec:
+      containers:
+      - name: db-backend
+        image: mysql
+        env:
+        - name: MYSQL_DATABASE
+          value: "tutorial_crud"
+        - name: MYSQL_USER
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "root"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "root"
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "1500m"
+        ports:
+        - containerPort: 3306
+          name: mysql
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-backend
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: db-backend
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server-front
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-server-front
+  strategy:
+    rollingUpdate:
+       maxSurge: 1
+       maxUnavailable: 1
+  minReadySeconds: 5    
+  template:
+    metadata:
+      labels:
+        app: web-server-front
+    spec:
+      containers:
+      - name: web-server-front
+        image: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: "wp-db-back"
+        - name: WORDPRESS_DB_USER
+          value: "admin"
+        - name: WORDPRESS_DB_PASSWORD
+          value: "admin"
+        - name: WORDPRESS_DB_NAME
+          value: "wordpress"  
+        - name: WORDPRESS_TABLE_PREFIX
+          value: "wp"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+          name: wordpress
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-server-front
+spec:
+  type: LoadBalancer
+  selector:
+    app: web-server-front
+  ports:
+  - port: 80
+    targetPort: 80
+
