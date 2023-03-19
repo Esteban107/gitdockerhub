@@ -3,8 +3,8 @@
 return [
   'db' => [
     'host' => 'db-backend',
-    'user' => 'root',
-    'pass' => 'root',
+    'user' => 'admin',
+    'pass' => 'admin',
     'name' => 'tutorial_crud',
     'options' => [
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION

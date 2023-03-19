@@ -20,11 +20,11 @@ spec:
         - name: MYSQL_DATABASE
           value: "tutorial_crud"
         - name: MYSQL_USER
-          value: "root"
+          value: "admin"
         - name: MYSQL_PASSWORD
-          value: "root"
+          value: "admin"
         - name: MYSQL_ROOT_PASSWORD
-          value: "root"
+          value: "admin"
         resources:
           limits:
             memory: "500Mi"
@@ -68,15 +68,15 @@ spec:
       - name: web-server-front
         image: esteban107/repodocker107:master
         env:
-        - name: WORDPRESS_DB_HOST
+        - name: CRUD_DB_HOST
           value: "db-backend"
-        - name: WORDPRESS_DB_USER
-          value: "root"
-        - name: WORDPRESS_DB_PASSWORD
-          value: "root"
-        - name: WORDPRESS_DB_NAME
+        - name: CRUD_DB_USER
+          value: "admin"
+        - name: CRUD_DB_PASSWORD
+          value: "admin"
+        - name: CRUD_DB_NAME
           value: "tutorial_crud"  
-        - name: WORDPRESS_TABLE_PREFIX
+        - name: CRUD_TABLE_PREFIX
           value: "CRUD"
         resources:
           limits:
@@ -84,7 +84,6 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
-          name: web-server-front
 ---
 apiVersion: v1
 kind: Service
