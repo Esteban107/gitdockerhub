@@ -66,25 +66,25 @@ spec:
     spec:
       containers:
       - name: web-server-front
-        image: wordpress
+        image: esteban107/repodocker107:master
         env:
         - name: WORDPRESS_DB_HOST
-          value: "wp-db-back"
+          value: "db-backend"
         - name: WORDPRESS_DB_USER
-          value: "admin"
+          value: "root"
         - name: WORDPRESS_DB_PASSWORD
-          value: "admin"
+          value: "root"
         - name: WORDPRESS_DB_NAME
-          value: "wordpress"  
+          value: "tutorial_crud"  
         - name: WORDPRESS_TABLE_PREFIX
-          value: "wp"
+          value: "CRUD"
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
         - containerPort: 80
-          name: wordpress
+          name: esteban107/repodocker107:master
 ---
 apiVersion: v1
 kind: Service
