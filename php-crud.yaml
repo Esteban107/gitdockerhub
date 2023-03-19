@@ -84,7 +84,7 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
-          name: esteban107/repodocker107:master
+          name: web-server-front
 ---
 apiVersion: v1
 kind: Service
