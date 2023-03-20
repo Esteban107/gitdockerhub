@@ -1,14 +1,3 @@
-#################################
-FROM mysql
-LABEL responsable = "esteban92111@outlook.com"
-
-ENV MYSQL_ROOT_PASSWORD admin
-COPY  ./crud-php/data/migracion.sql  /docker-entrypoint-initdb.d
-
-EXPOSE 3306
-
-
-
 #hay que ajustar la hora para que aplique correctamente los updates
 #archivo Dockerfile
 #crear imagen a partir de archivo dockerfile
