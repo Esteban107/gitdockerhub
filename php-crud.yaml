@@ -17,8 +17,8 @@ spec:
       - name: db-backend
         image: esteban107/repodocker107:mysqldevelopv1
         env:
-        - name: MYSQL_DATABASE
-          value: "tutorial_crud"
+#        - name: MYSQL_DATABASE
+#          value: "tutorial_crud"
         - name: MYSQL_USER
           value: "admin"
         - name: MYSQL_PASSWORD

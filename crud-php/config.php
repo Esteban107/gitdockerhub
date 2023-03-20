@@ -3,7 +3,7 @@
 return [
   'db' => [
     'host' => 'db-backend',
-    'user' => 'admin',
+    'user' => 'root',
     'pass' => 'admin',
     'name' => 'tutorial_crud',
     'options' => [
