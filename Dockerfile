@@ -17,3 +17,12 @@ COPY ./crud-php/  /var/www/html/
 RUN apt update && apt upgrade -y
 RUN docker-php-ext-install pdo pdo_mysql
 EXPOSE 80
+
+
+FROM mysql
+LABEL responsable = "esteban92111@outlook.com"
+
+ENV MYSQL_ROOT_PASSWORD admin
+ADD ./crud-php/data/migracion.sql  /docker-entrypoint-initdb.d
+
+EXPOSE 3306
