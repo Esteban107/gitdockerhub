@@ -59,7 +59,7 @@ if ($error) {
           <input type="text" id="apellido" name="apellido" placeholder="Buscar por apellido" class="form-control">
         </div>
         <input name="csrf" type="hidden" value="<?php echo escapar($_SESSION['csrf']); ?>">
-        <a href="crear.php"  class="btn btn-primary mt-4">Crear alumno</a>
+        <a href="crear.php"  class="btn btn-primary">Crear alumno</a>
         <button type="submit" name="submit" class="btn btn-primary">Ver resultados</button>
       </form>
     </div>
