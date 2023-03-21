@@ -26,4 +26,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME  }}/crudphp:v1
+          tags: ${{ secrets.DOCKER_USERNAME  }}/crudphp:v1.1
