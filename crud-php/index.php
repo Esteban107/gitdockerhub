@@ -60,6 +60,7 @@ if ($error) {
         </div>
         <input name="csrf" type="hidden" value="<?php echo escapar($_SESSION['csrf']); ?>">
         <a href="crear.php"  class="btn btn-primary">Crear alumno</a>
+        <p> </p>
         <button type="submit" name="submit" class="btn btn-primary">Ver resultados</button>
       </form>
     </div>
