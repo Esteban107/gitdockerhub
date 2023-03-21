@@ -52,7 +52,7 @@ if ($error) {
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-    <h2 class="mt-3">Formulario de registro de Alumnos</h2>
+    <h1 class="mt-3">Formulario de registro de Alumnos</h1>
       <a href="crear.php"  class="btn btn-primary mt-4">Crear alumno</a>
       <hr>
       <form method="post" class="form-inline">
